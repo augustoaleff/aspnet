@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/contato/recebercontato">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" value="@ViewBag.Contato.Nome" class="form-control" id="nome" placeholder="Digite o seu Nome">
+                @Html.ValidationMessage("nome")
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" value="@ViewBag.Contato.Email" class="form-control" id="email" placeholder="Digite o seu Email">
+                @Html.ValidationMessage("email")
+            </div>
+            <div class="form-group">
+                <label for="assunto">Assunto</label>
+                <input type="text" name="assunto" value="@ViewBag.Contato.Assunto" class="form-control" id="assunto" placeholder="Digite o Assunto">
+                @Html.ValidationMessage("assunto")
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea name="mensagem" class="form-control" id="mensagem">@ViewBag.Contato.Mensagem</textarea>
+                @Html.ValidationMessage("mensagem")
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        @ViewBag.Mensagem
+
+    </div>
+
+</body>
+</html>
